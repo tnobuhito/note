@@ -1,0 +1,2 @@
+# test_middleman_blog
+middlemanでブログを書くためのテスト
