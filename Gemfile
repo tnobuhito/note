@@ -7,6 +7,7 @@ gem "middleman-autoprefixer"
 gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
 
 gem 'redcarpet', '~> 3.3', '>= 3.3.3'
+gem 'bootstrap'
 
 # For feed.xml.builder
 gem 'builder', '~> 3.0'
