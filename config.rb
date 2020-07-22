@@ -77,6 +77,11 @@ configure :build do
   # activate :minify_javascript
 end
 
+activate :deploy do |deploy|
+  deploy.deploy_method = :git
+  deploy.branch = 'master'
+end
+
 ## GitHub Flavored Markdown
 set :markdown, tables: true, autolink: true, gh_blockcode: true, fenced_code_blocks: true
 set :markdown_engine, :redcarpet
