@@ -1,12 +1,12 @@
-# test_middleman_blog
+# note
 
 middlemanでブログを書くためのテスト
 
 # セットアップメモ
 
 ```
-  % clone ...
-  % cd test_middleman_blog
+  % clone git@github.com:tnobuhito/note.git
+  % cd note
   % bundle install
 
 記事のgenerate
