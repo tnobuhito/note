@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Blog Title - middlemanのインストール</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <link href="/note/stylesheets/site.css" rel="stylesheet" />
+    <script src="/note/javascripts/site.js"></script>
+  </head>
+  <body>
+    <div id="main" role="main">
+      <h2>middleman blogのインストールメモ</h2>
+
+<pre><code>  % rbenv shell 2.5.5
+  % gem install middleman
+  % gem install middleman-blog
+  % middleman init test_blog --template=blog
+  % cd test_blog
+  % bundle install
+  % git init
+  % git add .
+  % git commit
+  % vi Gemfile
+  % git diff
+  (実行結果)
+  diff --git a/Gemfile b/Gemfile
+  index 1ad62a1..4943d3f 100644
+  --- a/Gemfile
+  +++ b/Gemfile
+  @@ -3,6 +3,7 @@ source &#39;https://rubygems.org&#39;
+   # Middleman Gems
+   gem &#39;middleman&#39;, &#39;~&gt; 4.2&#39;
+   gem &#39;middleman-blog&#39;
+  +gem &quot;middleman-autoprefixer&quot;
+
+   gem &#39;redcarpet&#39;, &#39;~&gt; 3.3&#39;, &#39;&gt;= 3.3.3&#39;
+
+  % bundle install
+  % middleman article post
+
+  % cat source/2020-07-21-post.html.markdown
+  (実行結果)
+  ---
+
+  title: post
+  date: 2020-07-21 08:08 UTC
+  tags: 
+
+  ---
+
+以下で記事の記述を追加。
+
+  % vi source/2012-01-01-example-article.html.markdown
+  % vi source/2020-07-21-post.html.markdown
+
+ファイル名なども変更。
+
+サーバ起動
+
+  % middleman server
+
+ブラウザでアクセス。
+
+  http://localhost:4567/
+
+設定変更
+
+  % vi config.rb
+  (以下、追記)
+  ## GitHub Flavored Markdown
+  set :markdown, tables: true, autolink: true, gh_blockcode: true, fenced_code_blocks: true
+  set :markdown_engine, :redcarpet
+</code></pre>
+
+    </div>
+    <hr>
+    <aside>
+      <h2>最近の記事</h2>
+      <ol>
+          <li>
+            <span>2020/07/21</span>
+            <a href="/note/2020/07/21/install-middleman.html">middlemanのインストール</a>
+          </li>
+      </ol>
+      <h2>タグ</h2>
+      <ol>
+          <li><a href="/note/tags/middleman.html">middleman (1)</a></li>
+      </ol>
+      <h2>年別</h2>
+      <ol>
+          <li><a href="/note/2020.html">2020 (1)</a></li>
+      </ol>
+    </aside>
+  </body>
+</html>
