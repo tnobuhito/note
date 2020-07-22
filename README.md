@@ -21,7 +21,15 @@ middlemanでブログを書くためのテスト
 
   % middleman server
 
-ブラウザでアクセス。
+ブラウザでアクセス
 
   http://localhost:4567/
+
+ビルド
+
+  % bundle exec middleman build
+
+Github Pagesにデプロイ
+
+  % bundle exec middleman deploy
 ```
