@@ -120,7 +120,6 @@ DEPENDENCIES
   middleman-deploy (~> 2.0.0.pre.alpha)
   redcarpet (~> 3.3, >= 3.3.3)
   tzinfo-data
-  wdm (~> 0.1)
 
 BUNDLED WITH
    2.0.2
