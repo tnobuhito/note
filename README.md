@@ -5,7 +5,9 @@ middlemanでブログを書くためのテスト
 # セットアップメモ
 
 ```
-  % clone git@github.com:tnobuhito/note.git
+cloneなど
+
+  % git clone git@github.com:tnobuhito/note.git
   % cd note
   % bundle install
 
@@ -32,4 +34,8 @@ middlemanでブログを書くためのテスト
 Github Pagesにデプロイ
 
   % bundle exec middleman deploy
+
+ブラウザでGithub Pagesにアクセス
+
+  https://tnobuhito.github.io/note/
 ```
