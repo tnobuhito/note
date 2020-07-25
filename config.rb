@@ -35,7 +35,6 @@ activate :blog do |blog|
   # blog.page_link = "page/{num}"
 end
 
-page "/feed.xml", layout: false
 # Reload the browser automatically whenever files change
 # configure :development do
 #   activate :livereload
@@ -45,11 +44,15 @@ page "/feed.xml", layout: false
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
-# helpers do
-#   def some_helper
-#     'Helping'
-#   end
-# end
+helpers do
+  def url_prefix
+    if build?
+      '/note'
+    else
+      ''
+    end
+  end
+end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
@@ -82,3 +85,5 @@ end
 ## GitHub Flavored Markdown
 set :markdown, tables: true, autolink: true, gh_blockcode: true, fenced_code_blocks: true
 set :markdown_engine, :redcarpet
+
+page "/note.html"

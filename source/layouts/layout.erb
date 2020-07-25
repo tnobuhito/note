@@ -11,32 +11,27 @@
   </head>
   <body>
     <div id="main" role="main">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="<%= url_prefix %>/">タイトル</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">トップページ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= url_prefix %>/note.html">技術ノート</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <%= yield %>
+      <footer class="my-footer">
+        <p></p>
+      </footer>
     </div>
-    <hr>
-    <aside>
-      <h2>最近の記事</h2>
-      <ol>
-        <% blog.articles[0...10].each do |article| %>
-          <li>
-            <span><%= article.date.strftime('%Y/%m/%d') %></span>
-            <%= link_to article.title, article %>
-          </li>
-        <% end %>
-      </ol>
-      <h2>タグ</h2>
-      <ol>
-        <% blog.tags.each do |tag, articles| %>
-          <li><%= link_to "#{tag} (#{articles.size})", tag_path(tag) %></li>
-        <% end %>
-      </ol>
-      <h2>年別</h2>
-      <ol>
-        <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
-          <li><%= link_to "#{year} (#{articles.size})", blog_year_path(year) %></li>
-        <% end %>
-      </ol>
-    </aside>
     <%= javascript_include_tag 'app' %>
   </body>
 </html>

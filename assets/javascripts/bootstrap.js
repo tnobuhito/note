@@ -1,1 +1,5 @@
-// import 'bootstrap';
+import $ from 'jquery';
+import 'bootstrap';
+
+$(function() {
+});

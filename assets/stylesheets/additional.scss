@@ -1,2 +1,22 @@
-body {
+.navbar {
+}
+.top-page-container {
+  padding: 90px 30px;
+}
+.top-page-title {
+  color: #007bff;
+}
+.top-item-container {
+  padding-top: 80px;
+}
+.my-footer {
+  padding: 50px 0;
+  margin: 100px 0 0 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+.item-card-link:hover {
+  text-decoration: none;
 }

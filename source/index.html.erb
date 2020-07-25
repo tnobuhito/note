@@ -1,24 +1,41 @@
----
-pageable: true
-per_page: 10
----
-<% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
-
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
-<% end %>
-
-<% page_articles.each_with_index do |article, i| %>
-  <h2>
-    <span><%= article.date.strftime('%Y/%m/%d') %></span> <%= link_to article.title, article %>
-  </h2>
-  <%= article.body.truncate(200) %>
-<% end %>
-
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
-<% end %>
+<main class="top-page-container" id="content" role="main">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-6 mx-auto col-md-6 order-md-2">
+        <img class="img-fluid mb-3 mb-md-0 rounded-circle" src="<%= url_prefix %>/assets/images/top.jpg" alt="" width="1024" height="860">
+      </div>
+      <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
+        <h1 class="mb-3 top-page-title">サイトタイトル</h1>
+        <p class="lead">
+          サイト説明文。サイト説明文。サイト説明文。サイト説明文。サイト説明文。
+        </p>
+        <p class="mb-4">
+          補足説明文。補足説明文。補足説明文。
+        </p>
+        <div class="d-flex flex-column flex-md-row lead mb-3">
+          <form action="<%= url_prefix %>/note.html" method="get">
+            <button type="submit" class="btn btn-outline-primary btn btn-lg">技術ノート</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container top-item-container">
+    <div class="row">
+      <% page_articles.each_with_index do |article, i| %>
+        <% break if i >= 3 %>
+        <div class="col-sm">
+          <a href="<%= url_prefix %><%= article.url %>" class="item-card-link">
+            <div class="card border-primary mb-3" style="max-width: 18rem;">
+              <div class="card-header"><%= article.date.strftime('%Y/%m/%d') %></div>
+              <div class="card-body text-primary">
+                <h5 class="card-title"><%= article.title %></h5>
+                <p class="card-text"><%= simple_format(strip_tags(article.body.truncate(50))) %></p>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

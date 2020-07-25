@@ -1,11 +1,10 @@
 const path = require('path');
-const ExtractTextPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: [
     './assets/javascripts/bootstrap.js',
-    './assets/javascripts/additional.js',
     './assets/stylesheets/bootstrap.scss',
     './assets/stylesheets/additional.scss'
   ],
@@ -25,49 +24,17 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: 'css-loader',
-            options: {
-              url: false,
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              plugins: function () {
-                return [
-                  require('precss'),
-                  require('autoprefixer')
-                ];
-              }
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
         ]
-      },
-      {
-        test: require.resolve('jquery'),
-        use: [{
-          loader: 'expose-loader',
-          options: 'jQuery'
-        }, {
-          loader: 'expose-loader',
-          options: '$'
-        }]
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: 'stylesheets/app.css',
-      allChunks: true
+    new MiniCssExtractPlugin({
+      filename: 'stylesheets/app.css'
     }),
     new CopyWebpackPlugin({
       patterns: [
