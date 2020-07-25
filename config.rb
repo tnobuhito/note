@@ -1,33 +1,14 @@
-activate :sprockets
-sprockets.append_path 'bower_components/bootstrap-sass/assets/fonts'
-sprockets.append_path 'bower_components'
-
-# Activate and configure extensions
-# https://middlemanapp.com/advanced/configuration/#configuring-extensions
-
 activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
 
-# Layouts
-# https://middlemanapp.com/basics/layouts/
+set :css_dir, 'assets/stylesheets'
+set :js_dir, 'assets/javascripts'
+set :images_dir, 'assets/images'
 
-# Per-page layout changes
-#
-# With no layout
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
-
-# With alternative layout
-# page '/path/to/file.html', layout: 'other_layout'
-
-# Proxy pages
-# https://middlemanapp.com/advanced/dynamic-pages/
-# proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
-#  which_fake_page: "Rendering a fake page with a local variable" }
-
-# Activate and configure blog extension
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
@@ -81,6 +62,17 @@ configure :build do
   # activate :minify_javascript
 
   set :http_prefix, '/note'
+end
+
+activate :external_pipeline,
+  name: :webpack,
+  command: build? ? 'npm run build' : 'npm run watch',
+  source: ".tmp/dist",
+  latency: 1
+
+configure :production do
+  activate :minify_html
+  activate :asset_hash, ignore: [/\.jpg\Z/, /\.png\Z/, /\.svg\Z/]
 end
 
 activate :deploy do |deploy|

@@ -1,6 +1,6 @@
 # note
 
-middlemanでブログを書くためのテスト
+middlemanでブログを書いてGitHub Pagesで公開する
 
 # セットアップメモ
 
@@ -9,12 +9,8 @@ cloneなど
 
   % git clone git@github.com:tnobuhito/note.git
   % cd note
-  % bundle install
-
-bootstrapなどをインストール
-
-  % npm install
-  % node_modules/bower/bin/bower install
+  % bundle
+  % yarn
 
 記事のgenerate
 
@@ -26,7 +22,7 @@ bootstrapなどをインストール
 
 サーバ起動
 
-  % middleman server
+  % bundle exec middleman server
 
 ブラウザでアクセス
 
