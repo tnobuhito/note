@@ -1,5 +1,5 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -24,35 +24,33 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                url: false,
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                plugins: function () {
-                  return [
-                    require('precss'),
-                    require('autoprefixer')
-                  ];
-                }
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: function () {
+                return [
+                  require('precss'),
+                  require('autoprefixer')
+                ];
               }
             }
-          ]
-        })
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: require.resolve('jquery'),
@@ -71,10 +69,17 @@ module.exports = {
       filename: 'stylesheets/app.css',
       allChunks: true
     }),
-    new CopyWebpackPlugin([{
-      from: './assets/images',
-      to: 'images',
-      ignore: '.*'
-    }])
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: './assets/images',
+          to: 'images',
+          globOptions: {
+            dot: false,
+            gitignore: false,
+          },
+        },
+      ],
+    }),
   ],
 };
