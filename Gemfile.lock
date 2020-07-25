@@ -102,6 +102,9 @@ GEM
       middleman-core (>= 3.2)
       net-sftp
       ptools
+    middleman-sprockets (4.1.1)
+      middleman-core (~> 4.0)
+      sprockets (>= 3.0)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
     net-sftp (3.0.0)
@@ -173,6 +176,7 @@ DEPENDENCIES
   middleman-autoprefixer
   middleman-blog
   middleman-deploy (~> 2.0.0.pre.alpha)
+  middleman-sprockets
   redcarpet (~> 3.3, >= 3.3.3)
   tzinfo-data
 

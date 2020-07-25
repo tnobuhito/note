@@ -11,6 +11,11 @@ cloneなど
   % cd note
   % bundle install
 
+bootstrapなどをインストール
+
+  % npm install
+  % node_modules/bower/bin/bower install
+
 記事のgenerate
 
   % middleman article post

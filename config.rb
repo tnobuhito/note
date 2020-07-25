@@ -1,3 +1,7 @@
+activate :sprockets
+sprockets.append_path 'bower_components/bootstrap-sass/assets/fonts'
+sprockets.append_path 'bower_components'
+
 # Activate and configure extensions
 # https://middlemanapp.com/advanced/configuration/#configuring-extensions
 
