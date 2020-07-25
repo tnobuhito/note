@@ -25,7 +25,7 @@
       <% page_articles.each_with_index do |article, i| %>
         <% break if i >= 3 %>
         <div class="col-sm">
-          <a href="<%= url_prefix %><%= article.url %>" class="item-card-link">
+          <a href="<%= article.url %>" class="item-card-link">
             <div class="card border-primary mb-3" style="max-width: 18rem;">
               <div class="card-header"><%= article.date.strftime('%Y/%m/%d') %></div>
               <div class="card-body text-primary">
