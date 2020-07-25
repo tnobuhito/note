@@ -14,7 +14,6 @@
 /.sass-cache
 /.cache
 
-/bower_components
 /node_modules
 
 # Ignore .DS_store file
