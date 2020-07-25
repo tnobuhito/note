@@ -8,7 +8,7 @@
     <title>Blog Title<%= ' - ' + current_article.title unless current_article.nil? %></title>
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
     <%= stylesheet_link_tag 'bootstrap' %>
-    <%= stylesheet_link_tag 'site' %>
+    <%= stylesheet_link_tag 'additional' %>
   </head>
   <body>
     <div id="main" role="main">
@@ -39,6 +39,6 @@
       </ol>
     </aside>
     <%= javascript_include_tag 'bootstrap' %>
-    <%= javascript_include_tag 'site' %>
+    <%= javascript_include_tag 'additional' %>
   </body>
 </html>
