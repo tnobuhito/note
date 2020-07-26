@@ -8,10 +8,10 @@
         <div class="row">
           <div class="col-md-8 blog-main">
             <% if current_article %>
-              <h1>
+              <h3>
                 <%= current_article.title %>
-              </h1>
-              <br>
+              </h3>
+              <hr>
             <% end %>
             <%= yield %>
           </div>

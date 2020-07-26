@@ -3,23 +3,4 @@ layout: article_layout
 ---
 <h4>タグ「<%= tagname %>」の投稿一覧</h4>
 <br>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">タイトル</th>
-      <th scope="col">日付</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% page_articles.each_with_index do |article, i| %>
-      <tr>
-        <th scope="row">
-          <%= link_to article.title, article %>
-        </th>
-        <td>
-          <%= article.date.strftime('%Y年%m月%d日') %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= partial 'article_table' %>

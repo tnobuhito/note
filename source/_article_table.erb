@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">タイトル</th>
+      <th scope="col">日付</th>
+      <th scope="col">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% page_articles.each_with_index do |article, i| %>
+      <tr>
+        <th scope="row">
+          <%= link_to article.title, article %>
+        </th>
+        <td>
+          <%= article.date.strftime('%Y年%m月%d日') %>
+        </td>
+        <td>
+          <%= simple_format(strip_tags(article.body.truncate(50))) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
