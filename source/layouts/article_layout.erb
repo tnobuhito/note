@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <%= partial "head" %>
+  <body>
+    <div id="main" role="main">
+      <%= partial "navbar" %>
+      <div class="container article-outside-container">
+        <div class="row">
+          <div class="col-md-8 blog-main">
+            <% if current_article %>
+              <h1>
+                <%= current_article.title %>
+              </h1>
+              <br>
+            <% end %>
+            <%= yield %>
+          </div>
+          <aside class="col-md-4 blog-sidebar">
+            <div class="p-3 mb-3 bg-light rounded">
+              <!-- <h4 class="font-italic">About</h4> -->
+              <h4 class="font-italic">技術メモ</h4>
+              <p class="mb-0">
+                日々学んだことを技術メモとして残していこうと思っています。
+              </p>
+            </div>
+            <div class="p-3">
+              <h4 class="font-italic">最新投稿</h4>
+              <ol class="list-unstyled">
+                <% blog.articles[0...10].each do |article| %>
+                  <li>
+                    <span><%= article.date.strftime('%Y/%m/%d') %></span>
+                    <a href="<%= article.url %>"><%= article.title %></a>
+                  </li>
+                <% end %>
+              </ol>
+            </div>
+            <div class="p-3">
+              <h4 class="font-italic">タグ</h4>
+              <ol class="list-unstyled">
+                <% blog.tags.each do |tag, articles| %>
+                  <li>
+                    <a href="<%= tag_path(tag) %>"><%= "#{tag} (#{articles.size})" %></a>
+                  </li>
+                <% end %>
+              </ol>
+            </div>
+            <div class="p-3">
+              <h4 class="font-italic">年別</h4>
+              <ol class="list-unstyled">
+                <% blog.articles.group_by { |a| a.date.year }.each do |year, articles| %>
+                  <li>
+                    <a href="<%= blog_year_path(year) %>"><%= "#{year} (#{articles.size})" %></a>
+                  </li>
+                <% end %>
+              </ol>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <%= partial "footer" %>
+    </div>
+  </body>
+</html>

@@ -33,6 +33,8 @@ activate :blog do |blog|
   # blog.paginate = true
   # blog.per_page = 10
   # blog.page_link = "page/{num}"
+
+  blog.layout = "article_layout"
 end
 
 # Reload the browser automatically whenever files change
