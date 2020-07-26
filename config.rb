@@ -33,6 +33,7 @@ activate :blog do |blog|
   blog.paginate = true
   blog.per_page = 10
   blog.page_link = "page/{num}"
+  blog.sources = "articles/{year}-{month}-{day}-{title}.html"
 
   blog.layout = "article_layout"
 end
