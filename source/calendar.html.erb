@@ -1,33 +1,25 @@
 ---
-pageable: true
+layout: article_layout
 ---
-<h1>Archive for
-  <% case page_type
-     when 'day' %>
-    <%= Date.new(year, month, day).strftime('%b %e %Y') %>
-  <% when 'month' %>
-    <%= Date.new(year, month, 1).strftime('%b %Y') %>
-  <% when 'year' %>
-    <%= year %>
-  <% end %>
-</h1>
-
-<% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
-
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
-<% end %>
-
-<ul>
-  <% page_articles.each_with_index do |article, i| %>
-    <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
-  <% end %>
-</ul>
-
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
-<% end %>
+<h4>「<%= year %>」年の投稿一覧</h4>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">タイトル</th>
+      <th scope="col">日付</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% page_articles.each_with_index do |article, i| %>
+      <tr>
+        <th scope="row">
+          <%= link_to article.title, article %>
+        </th>
+        <td>
+          <%= article.date.strftime('%Y年%m月%d日') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
