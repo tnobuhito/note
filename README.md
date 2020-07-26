@@ -10,15 +10,17 @@ cloneなど
   % git clone git@github.com:tnobuhito/note.git
   % cd note
   % bundle
-  % yarn
+  % npm install
 
 記事のgenerate
 
-  % middleman article post
+  (投稿のタイトルが「post」の場合)
+  % bundle exec middleman article post
 
-適当に編集
+「source/articles/」配下に投稿用ファイルが作成される。
+これを適宜変更する。
 
-  % vi source/2020-07-21-post.html.markdown
+  % vi source/articles/2020-07-26-post.html.md
 
 サーバ起動
 
