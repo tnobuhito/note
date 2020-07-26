@@ -4,7 +4,6 @@ middlemanでブログを書いてGitHub Pagesで公開する
 
 # セットアップメモ
 
-```
 cloneなど
 
   % git clone git@github.com:tnobuhito/note.git
@@ -41,5 +40,12 @@ Github Pagesにデプロイ
 ブラウザでGithub Pagesにアクセス
 
   https://tnobuhito.github.io/note/
+
+# 画像ファイル
+
+画像ファイルは「/assets/images/」ディレクトリ配下に配置して、マークダウンからは以下のようにして参照してください。
+
+```
+![](/assets/images/wakarimi.png)
 ```
 
