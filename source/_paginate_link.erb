@@ -1,0 +1,11 @@
+<div class="paginate-container">
+  <% if paginate && num_pages > 1 %>
+    <% if prev_page %>
+      <%= link_to " < 戻る ", prev_page %>
+    <% end %>
+    <%= page_number %> / <%= num_pages %> ページ
+    <% if next_page %>
+      <%= link_to " 進む > ", next_page %>
+    <% end %>
+  <% end %>
+</div>
