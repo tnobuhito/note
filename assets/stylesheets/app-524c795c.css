@@ -7319,3 +7319,10 @@ a.text-dark:hover, a.text-dark:focus {
 .article-outside-container {
   padding-top: 30px; }
 
+.article-table {
+  word-break: break-all; }
+
+.paginate-container {
+  text-align: center;
+  width: 100%; }
+
